@@ -4,7 +4,7 @@
 import os
 
 def run_sleuth():
-    sleuth = 'sleuth.R'
+    sleuth = 'Rscript sleuth.R'
     os.system(sleuth)
     with open('miniProject_Aditi_Patel/sleuth_output.txt') as sleuth_output:
         with open("miniProject.log", "a") as miniProject_log:
