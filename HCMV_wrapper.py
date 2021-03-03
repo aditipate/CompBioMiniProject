@@ -1,5 +1,6 @@
 import getTestData
 import kallisto
+import sleuth
 
 import os
 from Bio import Entrez
@@ -43,3 +44,6 @@ kallisto.run_kallisto_qaunt(SRA3)
 kallisto.run_kallisto_qaunt(SRA4)
 
 kallisto.kallisto_sample_table(SRA1,SRA2,SRA3,SRA4)
+
+#3
+sleuth.run_sleuth()

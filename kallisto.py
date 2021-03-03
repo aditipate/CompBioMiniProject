@@ -44,4 +44,3 @@ def kallisto_sample_table(SRA1,SRA2,SRA3,SRA4):
     kallisto_samples.close()
 
 
-
