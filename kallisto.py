@@ -3,8 +3,10 @@
 # Write the following to your log file (replace with the number of coding sequences in the HCMV genome): The HCMV genome (EF999921) has # CDS.
 
 import os
+import pandas as pd
 from Bio import Entrez
 from Bio import SeqIO
+
 
 #build a transcriptome index for HCMV (NCBI accession EF999921)
 def getRefTransciptome():
@@ -28,8 +30,18 @@ def get_kallisto_index():
     os.system(kallisto_index)
 
 
-#Quantify the TPM of each CDS in each transcriptome with kallisto using quantification commands
+#quantify the TPM of each CDS in each transcriptome with kallisto using quantification commands
 def run_kallisto_qaunt(SRA):
     kallisto_quant_SRA = 'time kallisto quant -i miniProject_Aditi_Patel/HCMV_index.idx -o miniProject_Aditi_Patel/' + SRA + ' ' + '-b 30 -t 2' + 'testdata/' + SRA + '.1_1.fastq' + 'testdata/' + SRA + '.1_2.fastq'
     os.system(kallisto_quant_SRA)
+
+#build a table of kallisto samples, conditions, and paths and then generate tab-delimited .txt file to be used as input in sleuth
+def kallisto_sample_table(SRA1,SRA2,SRA3,SRA4):
+    results = {'sample': [SRA1, SRA2, SRA3, SRA4], 'condition': ["2dpi", "6dpi", "2dpi", "6dpi"], 'path': ['miniProject_Aditi_Patel/' + SRA1, 'miniProject_Aditi_Patel/' + SRA2, 'miniProject_Aditi_Patel/' + SRA3, 'miniProject_Aditi_Patel/' + SRA4]}
+    df = pd.DataFrame(results)
+    kallisto_samples = open("kallisto_samples.txt", 'w')
+    kallisto_samples.write(df.to_string(index=False))
+    kallisto_samples.close()
+
+
 
