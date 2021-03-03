@@ -33,12 +33,13 @@ os.chdir(current_path)
 
 #CURRENT DIRECTORY: .../current_path
 #2
-# kallisto.getRefTransciptome()
-# kallisto.get_kallisto_index()
-#
-# kallisto.run_kallisto_qaunt(SRA1)
-# kallisto.run_kallisto_qaunt(SRA2)
-# kallisto.run_kallisto_qaunt(SRA3)
-# kallisto.run_kallisto_qaunt(SRA4)
+kallisto.getRefTransciptome()
+
+kallisto.get_kallisto_index()
+
+kallisto.run_kallisto_qaunt(SRA1)
+kallisto.run_kallisto_qaunt(SRA2)
+kallisto.run_kallisto_qaunt(SRA3)
+kallisto.run_kallisto_qaunt(SRA4)
 
 
