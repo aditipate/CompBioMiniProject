@@ -43,5 +43,23 @@ def kallisto_sample_table(SRA1,SRA2,SRA3,SRA4):
     kallisto_samples.write(df.to_csv(index=False,sep='\t'))
     kallisto_samples.close()
 
+def kallisto_table(SRA1,SRA2,SRA3,SRA4):
+    list_srr = [SRA1,SRA2,SRA3,SRA4]
+    kallisto_samples = open("kallisto_table.txt", 'w')
+    condition_1 = '2dpi'
+    condition_2 = '6dpi'
+    kallisto_samples.write('sample' + '\t' + 'condition' + '\t' + 'path' + '\n')
+    for srr in list_srr:
+        path = "miniProject_Aditi_Patel/" + srr
+        if int(srr[3:])%2==0:
+            kallisto_samples.write(str(srr) + '\t' + condition_1 + '\t' + str(path) + '\n')
+        else:
+            kallisto_samples.write(str(srr) + '\t' + condition_2 + '\t' + str(path) + '\n')
+
+    kallisto_samples.close()
+
+
+
+
 
 
