@@ -36,7 +36,7 @@ def getRefTranscriptome():
 
 #build the index of the reference transciptome with kallisto using indexing command
 def get_kallisto_index():
-    HCMV_transcriptome = "HCMV_transcriptome.fasta"
+    HCMV_transcriptome = "HCMV_EF999921_CDS.fasta"
     kallisto_index = 'time kallisto index -i HCMV_index.idx' + ' ' + HCMV_transcriptome
     os.system(kallisto_index)
 
