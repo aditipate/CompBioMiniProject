@@ -9,6 +9,7 @@ from Bio import SeqIO
 
 
 #build a transcriptome index for HCMV (NCBI accession EF999921)
+
 def getRefTranscriptome():
     hcmv_EF999921 = open('HCMV_EF999921.fasta', 'w')
     Entrez.email = "apatel72@luc.edu"
