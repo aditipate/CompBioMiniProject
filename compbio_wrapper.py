@@ -1,9 +1,11 @@
 import getTestData
 import kallisto
 import sleuth
+import bowtie2
 
 import os
 
+#test data SRR ids
 SRRs = ['SRR5660030', 'SRR5660033','SRR5660044','SRR5660045']
 
 #create project results folder
@@ -37,3 +39,7 @@ kallisto.kallisto_sample_table(SRRs)
 
 #3
 sleuth.run_sleuth()
+
+#4
+bowtie2.run_bowtie2(SRRs)
+bowtie2.getReads(SRRs)

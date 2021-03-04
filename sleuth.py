@@ -3,6 +3,7 @@
 
 import os
 
+#use kallisto results as input to find differentially expressed genes between the two timepoints (2pi and 6dpi) using the R package sleuth
 def run_sleuth():
     sleuth = 'Rscript sleuth.R'
     os.system(sleuth)
