@@ -40,7 +40,8 @@ def kallisto_sample_table(SRA1,SRA2,SRA3,SRA4):
     results = {'sample': [SRA1, SRA2, SRA3, SRA4], 'condition': ["2dpi", "6dpi", "2dpi", "6dpi"], 'path': ['miniProject_Aditi_Patel/' + SRA1, 'miniProject_Aditi_Patel/' + SRA2, 'miniProject_Aditi_Patel/' + SRA3, 'miniProject_Aditi_Patel/' + SRA4]}
     df = pd.DataFrame(results)
     kallisto_samples = open("kallisto_samples.txt", 'w')
-    kallisto_samples.write(df.to_string(index=False))
+    kallisto_samples.write(df.to_csv(index=False,sep='\t'))
     kallisto_samples.close()
+
 
 
