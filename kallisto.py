@@ -9,16 +9,26 @@ from Bio import SeqIO
 
 
 #build a transcriptome index for HCMV (NCBI accession EF999921)
-def getRefTransciptome():
-    Entrez.email = "apatel72@luc.edu"                                                            #YOUR_NAME@EMAIL.COM
-    handle = Entrez.efetch(db="nucleotide", id=["EF999921"],rettype='gb', retmode="text")
-    record = SeqIO.read(handle, "genbank")
-    record.features = [feat for feat in record.features if feat.type == "CDS"]
-    number_CDS = len(record.features)
-    SeqIO.write(record, "HCMV_transcriptome.fasta", "fasta")
+def getRefTranscriptome():
+    hcmv_EF999921 = open('HCMV_EF999921.fasta', 'w')
+    Entrez.email = "apatel72@luc.edu"
+    handle = Entrez.efetch(db="nucleotide", id=["EF999921"], rettype='fasta')
+    records = list(SeqIO.parse(handle, "fasta"))
+    hcmv_EF999921.write('>' + str(records[0].description)+ '\n' + str(records[0].seq))
+    hcmv_EF999921.close()
+
+    hcmv_EF999921_CDS = open('HCMV_EF999921_CDS.fasta', 'w')
+    handle = Entrez.efetch(db='nucleotide', id='EF999921', rettype='gb', retmode='text')
+    count_CDS = 0
+    for record in SeqIO.parse(handle, 'genbank'):
+        for feature in record.features:
+            if feature.type == "CDS":
+                count_CDS = count_CDS + 1
+                hcmv_EF999921_CDS.write('>' + str(feature.qualifiers['protein_id']).replace('[', '').replace(']', '').replace("'","") + '\n' + str(feature.location.extract(record).seq) + '\n')
+    hcmv_EF999921_CDS.close()
 
     miniProject_log = open("miniProject.log", "w")
-    miniProject_log.write('The HCMV genome (EF999921) has' + ' ' + str(number_CDS) + ' ' + 'CDS' + '\n')
+    miniProject_log.write('The HCMV genome (EF999921) has' + ' ' + str(count_CDS) + ' ' + 'CDS' + '\n')
     miniProject_log.close()
 
 

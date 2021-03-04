@@ -32,7 +32,7 @@ os.chdir(current_path)
 
 #CURRENT DIRECTORY: .../current_path
 #2
-kallisto.getRefTransciptome()
+kallisto.getRefTranscriptome()
 
 kallisto.get_kallisto_index()
 
