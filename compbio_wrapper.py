@@ -1,8 +1,12 @@
+#import python files
 import getTestData
 import kallisto
 import sleuth
 import bowtie2
+import spades
+import contigs
 
+#import packages + libraries
 import os
 
 #test data SRR ids
@@ -20,6 +24,7 @@ os.mkdir(current_path + testdata)
 os.chdir(current_path + testdata)
 
 #CURRENT DIRECTORY: .../current_path/testdata
+
 #1
 getTestData.getTranscriptome(SRRs)
 
@@ -27,6 +32,7 @@ getTestData.getTranscriptome(SRRs)
 os.chdir(current_path)
 
 #CURRENT DIRECTORY: .../current_path
+
 #2
 kallisto.getRefTranscriptome()
 
@@ -43,3 +49,16 @@ sleuth.run_sleuth()
 #4
 bowtie2.run_bowtie2(SRRs)
 bowtie2.getReads(SRRs)
+
+#5
+spades.run_spades(SRRs)
+
+#6
+contigs.getContigsCount()
+
+#7
+contigs.getAssemblyLen()
+
+#8
+contigs.getLongContig()
+
