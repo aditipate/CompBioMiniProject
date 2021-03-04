@@ -26,13 +26,13 @@ def getRefTransciptome():
 #build the index of the reference transciptome with kallisto using indexing command
 def get_kallisto_index():
     HCMV_transcriptome = "HCMV_transcriptome.fasta"
-    kallisto_index = 'time kallisto index -i miniProject_Aditi_Patel/HCMV_index.idx' + ' ' + HCMV_transcriptome
+    kallisto_index = 'time kallisto index -i HCMV_index.idx' + ' ' + HCMV_transcriptome
     os.system(kallisto_index)
 
 
 #quantify the TPM of each CDS in each transcriptome with kallisto using quantification commands
 def run_kallisto_qaunt(SRA):
-    kallisto_quant_SRA = 'time kallisto quant -i miniProject_Aditi_Patel/HCMV_index.idx -o miniProject_Aditi_Patel/' + SRA + ' ' + '-b 30 -t 2' + 'testdata/' + SRA + '.1_1.fastq' + 'testdata/' + SRA + '.1_2.fastq'
+    kallisto_quant_SRA = 'time kallisto quant -i HCMV_index.idx -o miniProject_Aditi_Patel/' + SRA + ' ' + '-b 30 -t 2' + 'testdata/' + SRA + '.1_1.fastq' + 'testdata/' + SRA + '.1_2.fastq'
     os.system(kallisto_quant_SRA)
 
 #build a table of kallisto samples, conditions, and paths and then generate tab-delimited .txt file to be used as input in sleuth

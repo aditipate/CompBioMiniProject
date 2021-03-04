@@ -3,8 +3,6 @@ import kallisto
 import sleuth
 
 import os
-from Bio import Entrez
-from Bio import SeqIO
 
 SRA1 = 'SRR5660030'
 SRA2 = 'SRR5660033'
