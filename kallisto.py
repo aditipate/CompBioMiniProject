@@ -42,32 +42,21 @@ def get_kallisto_index():
 
 
 #quantify the TPM of each CDS in each transcriptome with kallisto using quantification commands
-def run_kallisto_qaunt(SRA):
-    kallisto_quant_SRA = 'time kallisto quant -i HCMV_index.idx -o miniProject_Aditi_Patel/' + SRA + ' ' + '-b 30 -t 2' + ' ' + 'testdata/' + SRA + '.1_1.fastq' + ' ' + 'testdata/' + SRA + '.1_2.fastq'
-    os.system(kallisto_quant_SRA)
+def run_kallisto_qaunt(SRRs):
+    for SRR in SRRs:
+        kallisto_quant_SRR = 'time kallisto quant -i HCMV_index.idx -o miniProject_Aditi_Patel/' + SRR + ' ' + '-b 30 -t 2' + ' ' + 'testdata/' + SRR + '.1_1.fastq' + ' ' + 'testdata/' + SRR + '.1_2.fastq'
+        os.system(kallisto_quant_SRR)
+
 
 #build a table of kallisto samples, conditions, and paths and then generate tab-delimited .txt file to be used as input in sleuth
-def kallisto_sample_table(SRA1,SRA2,SRA3,SRA4):
-    results = {'sample': [SRA1, SRA2, SRA3, SRA4], 'condition': ["2dpi", "6dpi", "2dpi", "6dpi"], 'path': ['miniProject_Aditi_Patel/' + SRA1, 'miniProject_Aditi_Patel/' + SRA2, 'miniProject_Aditi_Patel/' + SRA3, 'miniProject_Aditi_Patel/' + SRA4]}
+def kallisto_sample_table(SRRs):
+    results = {'sample': SRRs, 'condition': ["2dpi", "6dpi", "2dpi", "6dpi"], 'path': ['miniProject_Aditi_Patel/' + SRRs[0], 'miniProject_Aditi_Patel/' + SRRs[1], 'miniProject_Aditi_Patel/' + SRRs[2], 'miniProject_Aditi_Patel/' + SRRs[3]]}
     df = pd.DataFrame(results)
     kallisto_samples = open("kallisto_table.txt", 'w')
     kallisto_samples.write(df.to_csv(index=False,sep='\t'))
     kallisto_samples.close()
 
-def kallisto_table(SRA1,SRA2,SRA3,SRA4):
-    list_srr = [SRA1,SRA2,SRA3,SRA4]
-    kallisto_samples = open("kallisto_table.txt", 'w')
-    condition_1 = '2dpi'
-    condition_2 = '6dpi'
-    kallisto_samples.write('sample' + '\t' + 'condition' + '\t' + 'path' + '\n')
-    for srr in list_srr:
-        path = "miniProject_Aditi_Patel/" + srr
-        if int(srr[3:])%2==0:
-            kallisto_samples.write(str(srr) + '\t' + condition_1 + '\t' + str(path) + '\n')
-        else:
-            kallisto_samples.write(str(srr) + '\t' + condition_2 + '\t' + str(path) + '\n')
 
-    kallisto_samples.close()
 
 
 

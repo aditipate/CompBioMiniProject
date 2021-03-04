@@ -4,10 +4,7 @@ import sleuth
 
 import os
 
-SRA1 = 'SRR5660030'
-SRA2 = 'SRR5660033'
-SRA3 = 'SRR5660044'
-SRA4 = 'SRR5660045'
+SRRs = ['SRR5660030', 'SRR5660033','SRR5660044','SRR5660045']
 
 #create project results folder
 current_path = os.getcwd()
@@ -22,10 +19,7 @@ os.chdir(current_path + testdata)
 
 #CURRENT DIRECTORY: .../current_path/testdata
 #1
-getTestData.getTranscriptome(SRA1)
-getTestData.getTranscriptome(SRA2)
-getTestData.getTranscriptome(SRA3)
-getTestData.getTranscriptome(SRA4)
+getTestData.getTranscriptome(SRRs)
 
 #change to current directory
 os.chdir(current_path)
@@ -36,13 +30,10 @@ kallisto.getRefTranscriptome()
 
 kallisto.get_kallisto_index()
 
-kallisto.run_kallisto_qaunt(SRA1)
-kallisto.run_kallisto_qaunt(SRA2)
-kallisto.run_kallisto_qaunt(SRA3)
-kallisto.run_kallisto_qaunt(SRA4)
+kallisto.run_kallisto_qaunt(SRRs)
 
-kallisto.kallisto_sample_table(SRA1,SRA2,SRA3,SRA4)
-#kallisto.kallisto_table(SRA1,SRA2,SRA3,SRA4)
+kallisto.kallisto_sample_table(SRRs)
+
 
 #3
 sleuth.run_sleuth()
