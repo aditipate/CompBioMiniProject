@@ -13,7 +13,7 @@ def run_bowtie2(SRRs):
 
 #find the number of reads in each transcriptome before and after the Bowtie2 mapping
 def getReads(SRRs):
-    for i in range(0,len(SRRs)-1):
+    for i in range(0,len(SRRs)):
         if i == 0:
             donor = "Donor 1 (2dpi)"
         elif i == 1:
