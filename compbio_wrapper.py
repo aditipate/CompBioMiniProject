@@ -5,6 +5,7 @@ import sleuth
 import bowtie2
 import spades
 import contigs
+import blast
 
 #import packages + libraries
 import os
@@ -61,4 +62,6 @@ contigs.getAssemblyLen()
 
 #8
 contigs.getLongContig()
+blast.run_blast()
+
 
