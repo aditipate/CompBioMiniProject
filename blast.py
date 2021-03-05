@@ -15,7 +15,7 @@ def parse_blast(filename,headers):
     return x
 
 def run_blast():
-    betaherpes_genome = 'miniProject_Aditi_Patel/betaherpes.fasta'
+    betaherpes_genome = 'betaherpes.fasta'
     blast_output = "miniProject_Aditi_Patel/blast_output.csv"
     make_db = "makeblastdb -in " + betaherpes_genome + " -out betaherpes -title betaherpes -dbtype nucl"
     os.system(make_db)
