@@ -11,7 +11,7 @@ possibly other malignancies such as prostate cancer
 
 ![alt text](https://assets.teenvogue.com/photos/5633c437315908291450e9af/1:1/w_350%2Ch_350%2Cc_limit/herpes.jpg)
 
-The Comp Bio Mini Project aims to compare the HCMV transcriptomes from 2 patient donors 2- and 6-days post-infection (dpi) and to observe the genetic diversity of the HMVC by comparing the patient samples to other publicly available strains inorder to find the ones that are the most similar.  
+The Comp Bio Mini Project aims to compare the HCMV transcriptomes from 2 patient donors 2- and 6-days post-infection and to observe the genetic diversity of the virus by comparing patient samples to other publicly available strains inorder to find the ones that are the most similar.  
 
 A Python wrapper was developed to automate the execution of various Bioinformatics software tools. 
 
