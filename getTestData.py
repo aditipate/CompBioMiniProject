@@ -16,4 +16,5 @@ def getTranscriptome(SRRs):
         fastq_dump_SRR = 'fastq-dump -I --split-files' + ' ' + SRR + '.1'
         os.system(wget_SRR)                                                      #retrieve small subset of input reads or testdata using wget command
         os.system(fastq_dump_SRR)                                                #uncompress data and convert to paired-end fastq files using fastq-dump command
-        os.chdir(current_path)                                                   #change to current directory
+
+    os.chdir(current_path)                                                       #change to current directory
