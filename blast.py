@@ -20,7 +20,7 @@ def run_blast():
     make_db = "makeblastdb -in " + betaherpes_genome + " -out betaherpes -title betaherpes -dbtype nucl"
     os.system(make_db)
     blast_contig = "blast_contig.fasta"
-    blast = 'blast+ -query ' + blast_contig + ' -db betaherpes -out ' + blast_output + ' -outfmt "10 sacc pident length qstart qend sstart send bitscore evalue stitle"'
+    blast = 'blastn -query ' + blast_contig + ' -db betaherpes -out ' + blast_output + ' -outfmt "10 sacc pident length qstart qend sstart send bitscore evalue stitle"'
     os.system(blast)
 
     headers = ['sacc', 'pident', 'length', 'qstart', 'qend', 'sstart', 'send', 'bitscore', 'evalue', 'stitle']
