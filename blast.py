@@ -1,4 +1,4 @@
-#.8 Use the longest contig as blast+ input to query the nr nucleotide database limited to members of the Betaherpesvirinae subfamily.
+#8b.Use the longest contig as blast+ input to query the nr nucleotide database limited to members of the Betaherpesvirinae subfamily.
 #You will need to make a local database of just sequences from the Betaherpesvirinae subfamily.
 #Identify the top 10 hits
 
@@ -15,11 +15,11 @@ def parse_blast(filename,headers):
     return x
 
 def run_blast():
-    betaherpes_genome = 'betaherpes.fasta'
-    blast_output = "blast_output.csv"
+    betaherpes_genome = 'miniProject_Aditi_Patel/betaherpes.fasta'
+    blast_output = "miniProject_Aditi_Patel/blast_output.csv"
     make_db = "makeblastdb -in " + betaherpes_genome + " -out betaherpes -title betaherpes -dbtype nucl"
     os.system(make_db)
-    blast_contig = "blast_contig.fasta"
+    blast_contig = "miniProject_Aditi_Patel/blast_contig.fasta"
     blast = 'blastn -query ' + blast_contig + ' -db betaherpes -out ' + blast_output + ' -outfmt "10 sacc pident length qstart qend sstart send bitscore evalue stitle"'
     os.system(blast)
 
@@ -37,6 +37,5 @@ def run_blast():
         hit_values = "\t".join(hit_values)
         miniProject_log.write(hit_values + '\n')
     miniProject_log.close()
-
 
 

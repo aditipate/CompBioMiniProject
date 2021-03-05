@@ -36,13 +36,9 @@ os.chdir(current_path)
 
 #2
 kallisto.getRefTranscriptome()
-
 kallisto.get_kallisto_index()
-
 kallisto.run_kallisto_qaunt(SRRs)
-
 kallisto.kallisto_sample_table(SRRs)
-
 
 #3
 sleuth.run_sleuth()
