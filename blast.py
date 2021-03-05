@@ -39,3 +39,4 @@ def run_blast():
     miniProject_log.close()
 
 
+

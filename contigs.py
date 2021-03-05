@@ -52,13 +52,3 @@ def getLongContig():
     blast_contig.write(str(longest_seq) + "\n")
     blast_contig.close()
 
-
-
-
-
-
-
-
-
-
-
