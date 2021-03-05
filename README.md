@@ -30,14 +30,38 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 
 ## Run The Wrapper: 
 
-<h5> Clone Repository </h5> 
+<h5> Clone Repository: </h5> 
 
 `git clone https://github.com/aditipate/CompBioMiniProject`
 
-<h5> Move From Current Directory To Project Directory </h5>
+<h5> Move Into Project Directory: </h5>
 
 `cd CompBioMiniProject/`
 
-<h5> Run Wrapper </h5>
+<h5> Run Wrapper: </h5>
 
 `python3 compbio_wrapper.py`
+
+## Folders and Scripts: 
+
+**testdata:** folder containing test data </br>
+
+**compbio_wrapper.py:** python wrapper, calls other python scripts, creates various output files, writes significant output results to miniProject.log </br> 
+
+**getTestData.py:** retrieves transcriptomes from two patient donors from SRA and convert to paired-end fastq files </br>
+***Note:*** *getTestData.py is not called in the python wrapper due to lengthy runtime of full length transcriptomes. However, a testdata folder containing shortened paired-end fastq files has been provided in the repository which the wrapper will use to run the pipeline* </br>
+
+**kallisto.py:** builds a transcriptome index for HCMV (NCBI accession EF999921), quantifies TPM in each sample using Kallisto, creates kallisto output table </br>
+
+**sleuth.R:** reads in kallisto output table to create a sleuth object, performs the likelihood ratio test for differential expression between conditions </br>
+
+**sleuth.py** writes significant sleuth output to miniProject.log </br>
+
+**bowtie2.py:** creates an index for HCMV (NCBI accession EF999921), saves the reads that map to the HCMV index for use in assembly </br>
+
+**spades.py:** uses reads from Bowtie2 mapping to produce 1 assembly via SPAdes </br>
+
+**contigs.py:** from SPades assembly calculates the number of contigs with a length > 1000, calculates the length of the assembly, finds longest contig </br>
+
+**blast.py:**  uses longest contig as blast+ input to query the nr nucleotide database limited to members of the Betaherpesvirinae subfamily
+
