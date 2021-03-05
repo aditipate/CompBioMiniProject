@@ -7,7 +7,7 @@ import os
 def run_bowtie2(SRRs):
     bowtie2_index = "bowtie2-build HCMV_EF999921.fasta miniProject_Aditi_Patel/HCMV"
     for SRR in SRRs:
-        bowtie2 = 'bowtie2 --quiet --no-unal --al-conc ' + SRR + '.fastq -x miniProject_Aditi_Patel/HCMV -1 ' + 'testdata/' + SRR + '.1_1.fastq -2 ' + 'testdata/' + SRR + '.1_2.fastq -S ' + 'miniProject_Aditi_Patel/' + SRR + '_map.sam'
+        bowtie2 = 'bowtie2 --quiet --no-unal --al-conc miniProject_Aditi_Patel/' + SRR + '.fastq -x miniProject_Aditi_Patel/HCMV -1 ' + 'testdata/' + SRR + '.1_1.fastq -2 ' + 'testdata/' + SRR + '.1_2.fastq -S ' + 'miniProject_Aditi_Patel/' + SRR + '_map.sam'
         os.system(bowtie2_index)
         os.system(bowtie2)
 
