@@ -36,13 +36,3 @@ def getReads(SRRs):
         miniProject_log.close()
 
 
-
-
-
-
-
-
-
-
-
-
