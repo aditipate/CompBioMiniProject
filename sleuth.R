@@ -6,7 +6,7 @@ library(dplyr)
 library(data.table)
 
 #read in the table describing samples and kallisto output 
-stab<-read.table("kallisto_table.txt",header=TRUE,stringsAsFactors=FALSE,sep='\t')
+stab<-read.table("miniProject_Aditi_Patel/kallisto_table.txt",header=TRUE,stringsAsFactors=FALSE,sep='\t')
 
 #initialize sleuth object
 so<-sleuth_prep(stab)
