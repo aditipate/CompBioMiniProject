@@ -4,6 +4,14 @@
 
 import os
 
+#create and change to testdata folder directory
+current_path = os.getcwd()
+testdata = "/testdata"
+os.mkdir(current_path + testdata)
+os.chdir(current_path + testdata)
+
+#CURRENT DIRECTORY: .../current_path/testdata
+
 #get Donor HMCV transcriptome
 def getTranscriptome(SRRs):
     for SRR in SRRs:
@@ -13,3 +21,8 @@ def getTranscriptome(SRRs):
         os.system(wget_SRR)                                                      #retrieve small subset of input reads or testdata using wget command
         os.system(fastq_dump_SRR)                                                #uncompress data and convert to paired-end fastq files using fastq-dump command
 
+
+#change to current directory
+os.chdir(current_path)
+
+#CURRENT DIRECTORY: .../current_path
