@@ -65,3 +65,9 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 
 **blast.py:**  uses longest contig as blast+ input to query the nr nucleotide database limited to members of the Betaherpesvirinae subfamily
 
+## Output: 
+
+**miniProject.log:** contains significant results from running the pipeline including # CDS in the HCMV genome, significant (FDR < 0.05) sleuth results, the number of reads in each transcriptome before and after the Bowtie2 mapping, the number of contigs with a length > 1000, the length of the assembly, and the top 10 BLAST hits </br>
+
+**miniProject_Aditi_Patel:** contains any significant files generated from running software tools
+
