@@ -27,3 +27,4 @@ def getTranscriptome(SRRs):
 #Note: getData is not called in wrapper, instead testdata folder containing the first 10000 records from the paired-end fastq will be used by wrapper
 #This is to shorten the runtime of pipeline compared to when using full length fastq files
 
+

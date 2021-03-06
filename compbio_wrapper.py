@@ -49,3 +49,4 @@ contigs.getAssemblyLen()
 contigs.getLongContig()
 blast.run_blast()
 
+

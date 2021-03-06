@@ -40,5 +40,3 @@ def run_blast():
         miniProject_log.write(hit_values + '\n')
     miniProject_log.close()
 
-
-

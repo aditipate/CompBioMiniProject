@@ -37,4 +37,3 @@ def getReads(SRRs):
         miniProject_log.write(donor + "had " + str(before_reads) + " read pairs before Bowtie2 filtering and " + str(after_reads) + " read pairs after." + "\n")
         miniProject_log.close()
 
-
