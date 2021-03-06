@@ -19,7 +19,7 @@ def getTranscriptome(SRRs):
         os.system(fastq_dump_SRR)                                                #uncompress data and convert to paired-end fastq files using fastq-dump command
 
     os.chdir(current_path)                                                       #change to current directory
-    os.mkdir(current_path + "testdatashort")
+    os.mkdir(current_path + "/testdatashort")
 
 
 
