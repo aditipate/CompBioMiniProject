@@ -50,7 +50,7 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 
 **getTestData.py:** retrieves transcriptomes from two patient donors from SRA and convert to paired-end fastq files </br>
 ***Note:*** *getTestData.py is not called in the python wrapper due to lengthy runtime of full length transcriptomes. However, a testdata folder containing shortened paired-end fastq files has been provided in the repository which the wrapper will use to run the pipeline.
-To run with full input reads uncomment #getData.getTranscriptome(SRRs) in getData.py* </br>
+To run with full input reads uncomment #getData.getTranscriptome(SRRs) in getData.py and move or empty testdata folder* </br>
 
 **kallisto.py:** builds a transcriptome index for HCMV (NCBI accession EF999921), quantifies TPM in each sample using Kallisto, creates kallisto output table </br>
 
