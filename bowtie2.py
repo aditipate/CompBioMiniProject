@@ -4,6 +4,7 @@
 
 import os
 
+#build bowtie2 index and run bowtie-2
 def run_bowtie2(SRRs):
     bowtie2_index = "bowtie2-build HCMV_EF999921.fasta miniProject_Aditi_Patel/HCMV"
     for SRR in SRRs:

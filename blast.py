@@ -5,6 +5,7 @@
 import os
 import csv
 
+#function to parse blast output
 def parse_blast(filename,headers):
     x=[]
     blast_results = open(filename,'r')
@@ -14,6 +15,7 @@ def parse_blast(filename,headers):
     blast_results.close()
     return x
 
+#build blast database, run blast, and parse blast results
 def run_blast():
     betaherpes_genome = 'betaherpes.fasta'
     blast_output = "miniProject_Aditi_Patel/blast_output.csv"

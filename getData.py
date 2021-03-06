@@ -3,7 +3,7 @@
 #You can use wget (by constructing the path based on the SRR numbers for each of these samples).
 
 import os
-from Bio import SeqIO
+
 
 #get Donor HMCV transcriptome
 def getTranscriptome(SRRs):
@@ -24,22 +24,5 @@ def getTranscriptome(SRRs):
 
 
 
-def gettest(SRRs):
-    for SRR in SRRs:
-        shortfastq = open(SRR + '.1_1.fastq', "w")
-        fullfastq = open('testdata/' + SRR + '.1_1.fastq')
-        records = list(SeqIO.parse(fullfastq, 'fastq'))
-        for i in range (0,10000):
-            shortfastq.write(str(records[i]))
-
-
-
-        shortfastq = open(SRR + '.1_2.fastq', "w")
-        fullfastq = open('testdata/' + SRR + '.1_2.fastq')
-        records = list(SeqIO.parse(fullfastq, 'fastq'))
-        for i in range(0, 10000):
-            shortfastq.write(str(records[i]))
-
-
-
-
+#Note: getData is not called in wrapper, instead testdata folder containing the first 10000 records from the paired-end fastq will be used by wrapper
+#This is to shorten the runtime of pipeline compared to when using full length fastq files
