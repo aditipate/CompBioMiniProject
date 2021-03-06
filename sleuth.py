@@ -14,4 +14,3 @@ def run_sleuth():
                 miniProject_log.write(line)
 
 
-
