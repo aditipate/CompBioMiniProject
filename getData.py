@@ -30,12 +30,12 @@ def gettest(SRRs):
         fullfastq = 'testdata/' + SRR + '.1_1.fastq'
         for i in range(0,10000):
             for record in  SeqIO.parse(fullfastq, "fastq"):
-                shortfastq.write(record)
+                shortfastq.write(str(record))
 
         shortfastq = open(SRR + '.1_2.fastq', "w")
         fullfastq = 'testdata/' + SRR + '.1_2.fastq'
         for i in range(0, 10000):
             for record in SeqIO.parse(fullfastq, "fastq"):
-                shortfastq.write(record)
+                shortfastq.write(str(record))
 
 
