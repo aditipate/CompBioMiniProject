@@ -44,7 +44,7 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 
 ## Folders and Scripts: 
 
-**testdata:** folder containing test data </br>
+**testdata:** folder containing files for the first 10000 lines of each SRR paired-end read </br>
 
 **compbio_wrapper.py:** python wrapper, calls other python scripts, creates various output files, writes significant output results to miniProject.log </br> 
 
@@ -69,5 +69,5 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 
 **miniProject.log:** contains significant results from running the pipeline including # CDS in the HCMV genome, significant (FDR < 0.05) sleuth results, the number of reads in each transcriptome before and after the Bowtie2 mapping, the number of contigs with a length > 1000, the length of the assembly, and the top 10 BLAST hits </br>
 
-**miniProject_Aditi_Patel:** contains any significant files generated from running software tools
+**miniProject_Aditi_Patel:** contains any significant files generated from running the pipeline 
 
