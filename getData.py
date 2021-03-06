@@ -3,6 +3,7 @@
 #You can use wget (by constructing the path based on the SRR numbers for each of these samples).
 
 import os
+from Bio import SeqIO
 
 #get Donor HMCV transcriptome
 def getTranscriptome(SRRs):
@@ -18,3 +19,23 @@ def getTranscriptome(SRRs):
         os.system(fastq_dump_SRR)                                                #uncompress data and convert to paired-end fastq files using fastq-dump command
 
     os.chdir(current_path)                                                       #change to current directory
+    os.mkdir(current_path + "testdatashort")
+
+
+
+
+def gettest(SRRs):
+    for SRR in SRRs:
+        shortfastq = open("testdatashort/" + SRR + '.1_1.fastq')
+        fullfastq = 'testdata/' + SRR + '.1_1.fastq'
+        for i in range(0,10000):
+            for record in  SeqIO.parse(fullfastq, "fastq"):
+                shortfastq.write(record)
+
+        shortfastq = open("testdatashort/" + SRR + '.1_2.fastq')
+        fullfastq = 'testdata/' + SRR + '.1_2.fastq'
+        for i in range(0, 10000):
+            for record in SeqIO.parse(fullfastq, "fastq"):
+                shortfastq.write(record)
+
+
