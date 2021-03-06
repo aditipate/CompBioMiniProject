@@ -27,15 +27,19 @@ def getTranscriptome(SRRs):
 def gettest(SRRs):
     for SRR in SRRs:
         shortfastq = open(SRR + '.1_1.fastq', "w")
-        fullfastq = 'testdata/' + SRR + '.1_1.fastq'
-        for i in range(0,10000):
-            for record in  SeqIO.parse(fullfastq, "fastq"):
-                shortfastq.write(str(record))
+        fullfastq = open('testdata/' + SRR + '.1_1.fastq')
+        records = list(SeqIO.parse(fullfastq, 'fastq'))
+        for i in range (0,10000):
+            shortfastq.write(str(records[i]))
+
+
 
         shortfastq = open(SRR + '.1_2.fastq', "w")
-        fullfastq = 'testdata/' + SRR + '.1_2.fastq'
+        fullfastq = open('testdata/' + SRR + '.1_2.fastq')
+        records = list(SeqIO.parse(fullfastq, 'fastq'))
         for i in range(0, 10000):
-            for record in SeqIO.parse(fullfastq, "fastq"):
-                shortfastq.write(str(record))
+            shortfastq.write(str(records[i]))
+
+
 
 
