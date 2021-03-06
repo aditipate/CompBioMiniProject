@@ -13,3 +13,5 @@ def run_sleuth():
             for line in sleuth_output:
                 miniProject_log.write(line)
 
+
+

@@ -11,3 +11,4 @@ def run_spades(SRRs):
     miniProject_log.write(spades + '\n')
     miniProject_log.close()
 
+

@@ -55,3 +55,4 @@ def kallisto_sample_table(SRRs):
     kallisto_samples.write(df.to_csv(index=False,sep='\t'))
     kallisto_samples.close()
 
+
