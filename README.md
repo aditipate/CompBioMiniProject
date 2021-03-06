@@ -7,7 +7,7 @@ salivary glands. HCMV infection is typically unnoticed in healthy people, but ca
 immunocompromised, such as HIV-infected persons, organ transplant recipients, or newborn infants. Congenital
 cytomegalovirus infection can lead to significant morbidity and even death. After infection, HCMV remains latent within
 the body throughout life and can be reactivated at any time. Eventually, it may cause mucoepidermoid carcinoma and
-possibly other malignancies such as prostate cancer
+possibly other malignancies such as prostate cancer.
 
 ![alt text](https://assets.teenvogue.com/photos/5633c437315908291450e9af/1:1/w_350%2Ch_350%2Cc_limit/herpes.jpg)
 
@@ -49,7 +49,8 @@ A Python wrapper was developed to automate the execution of various Bioinformati
 **compbio_wrapper.py:** python wrapper, calls other python scripts, creates various output files, writes significant output results to miniProject.log </br> 
 
 **getTestData.py:** retrieves transcriptomes from two patient donors from SRA and convert to paired-end fastq files </br>
-***Note:*** *getTestData.py is not called in the python wrapper due to lengthy runtime of full length transcriptomes. However, a testdata folder containing shortened paired-end fastq files has been provided in the repository which the wrapper will use to run the pipeline* </br>
+***Note:*** *getTestData.py is not called in the python wrapper due to lengthy runtime of full length transcriptomes. However, a testdata folder containing shortened paired-end fastq files has been provided in the repository which the wrapper will use to run the pipeline.
+To run with full input reads uncomment #getData.getTranscriptome(SRRs) in getData.py* </br>
 
 **kallisto.py:** builds a transcriptome index for HCMV (NCBI accession EF999921), quantifies TPM in each sample using Kallisto, creates kallisto output table </br>
 
